@@ -1,0 +1,20 @@
+{
+  "name": "et26-presentation",
+  "presentationName": "D2C_on_Steroids_ET26",
+  "type": "module",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev --port 4189",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^6.3.5",
+    "pdf-lib": "^1.17.1",
+    "puppeteer": "^25.1.0"
+  }
+}
