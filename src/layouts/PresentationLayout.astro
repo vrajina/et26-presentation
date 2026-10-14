@@ -17,26 +17,31 @@ const { title } = Astro.props;
   <style>
     .logo-container {
       position: fixed;
-      bottom: 40px;
-      left: 40px;
-      right: 40px;
+      bottom: 35px;
+      left: 50px;
+      right: 50px;
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: center;
       z-index: 1000;
       pointer-events: none;
     }
     .logo {
-      max-height: 80px;
       object-fit: contain;
-      filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.3));
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.7));
+    }
+    .logo-oborot {
+      max-height: 42px;
+    }
+    .logo-ff {
+      max-height: 30px;
     }
   </style>
 </head>
 <body>
 <div class="logo-container">
-  <img src="/et26_logo.png" class="logo" alt="ЭТ26" />
-  <img src="/ff_logo.png" class="logo" alt="FINN FLARE" />
+  <img src="/oborot_logo.png" class="logo logo-oborot" alt="Оборот.ру" />
+  <img src="/ff_logo_white.svg" class="logo logo-ff" alt="FINN FLARE" />
 </div>
 
 <div class="slides-track">
