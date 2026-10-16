@@ -22,45 +22,77 @@
   --transition-speed: 0.5s;
 }
 
-/* Global Typography - Compact, balanced, readable */
+/* Global Typography - Standardized, balanced, readable */
 h1, h2, h3, h4, h5, h6 { 
   text-transform: none !important; 
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
 }
 h1 { 
   font-size: 3.6rem; 
   line-height: 1.15; 
-  margin-bottom: 1.2rem; 
+  margin-top: 0;
+  margin-bottom: 1.4rem; 
   color: var(--pip-green); 
 }
 h2 { 
-  font-size: 2.8rem; 
-  line-height: 1.2; 
-  margin-bottom: 1.8rem; 
+  font-size: 2.7rem; 
+  line-height: 1.25; 
+  margin-top: 0;
+  margin-bottom: 2rem; 
   color: var(--pip-green); 
 }
 h3 { 
-  font-size: 1.85rem; 
-  line-height: 1.3; 
+  font-size: 1.65rem; 
+  line-height: 1.35; 
+  margin-top: 0;
   margin-bottom: 0.5rem; 
   color: var(--sega-blue); 
 }
 p, li { 
-  font-size: 1.45rem; 
-  line-height: 1.5; 
-  margin-bottom: 0.8rem; 
+  font-size: 1.35rem; 
+  line-height: 1.55; 
+  margin-top: 0;
+  margin-bottom: 0.6rem; 
   color: var(--text); 
 }
 ul { 
-  margin-bottom: 1rem; 
-  padding-left: 1.8rem; 
+  margin-top: 0.4rem;
+  margin-bottom: 0.8rem; 
+  padding-left: 1.5rem; 
 }
 li { 
   margin-bottom: 0.45rem; 
 }
 p:last-child, li:last-child {
   margin-bottom: 0;
+}
+
+/* Subtitles under h2 */
+h2.has-subtitle {
+  margin-bottom: 0.6rem !important;
+}
+.slide-subtitle {
+  font-family: var(--font-primary, 'Oxanium', sans-serif);
+  font-size: 1.45rem !important;
+  color: var(--dim) !important;
+  margin-top: 0 !important;
+  margin-bottom: 2rem !important;
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+/* Neon color helpers */
+.neon-cyan {
+  color: var(--pip-green) !important;
+  text-shadow: var(--gg);
+}
+.neon-magenta {
+  color: var(--sega-blue) !important;
+}
+.neon-green {
+  color: var(--pip-green) !important;
+  text-shadow: var(--gg);
 }
 
 /* 60/40 Split Layout */
@@ -77,7 +109,7 @@ p:last-child, li:last-child {
 .split-text {
   width: 40%;
   height: 100vh;
-  padding: 3rem 4rem 5.5rem 4rem;
+  padding: 3.5rem 4rem 5.5rem 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -98,24 +130,48 @@ p:last-child, li:last-child {
   object-fit: cover;
 }
 
-/* Bullet list and card styling */
+/* Bullet list and hanging card styling */
 .bullet-list {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.8rem;
 }
 .bullet-item {
   margin-bottom: 0;
 }
+.bullet-item h3 {
+  margin-top: 0;
+  margin-bottom: 0.45rem;
+}
+.bullet-item p {
+  margin-bottom: 0;
+}
+
+/* Врезки в рамочке: текст выравнивается по вертикали слайда, рамка свисает влево */
 .glow-box {
-  background: rgba(10, 12, 14, 0.75);
+  background: rgba(10, 12, 14, 0.78);
   border-radius: var(--radius-panel);
-  padding: 1.25rem 1.6rem;
+  padding: 1.3rem 1.6rem;
+  margin-left: -1.6rem;
+  margin-right: -1.6rem;
   border: 1px solid var(--border);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  box-sizing: border-box;
+}
+.glow-box h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 .glow-box p {
+  margin-bottom: 0.5rem;
+}
+.glow-box p:last-child {
   margin-bottom: 0;
+}
+.glow-box ul {
+  margin-top: 0.4rem;
+  margin-bottom: 0;
+  padding-left: 1.3rem;
 }
 .border-magenta {
   border-color: rgba(196, 130, 14, 0.45);
@@ -125,6 +181,82 @@ p:last-child, li:last-child {
 }
 .border-green {
   border-color: rgba(212, 175, 55, 0.45);
+}
+
+/* Metric card components for Slide 14 */
+.metric-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1.2rem;
+  margin-bottom: 0.35rem;
+}
+.metric-value {
+  font-family: var(--font-primary, 'Oxanium', sans-serif);
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.metric-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+.metric-desc {
+  font-size: 1.2rem !important;
+  color: var(--dim) !important;
+  margin: 0 !important;
+  line-height: 1.45 !important;
+}
+
+/* QA Slide Components */
+.qa-speaker-name {
+  font-size: 3.2rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+.qa-speaker-title {
+  font-size: 1.45rem;
+  color: var(--sega-blue);
+  margin-top: 0;
+  margin-bottom: 2.2rem;
+  font-weight: 600;
+}
+.qa-qr-block {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+}
+.qa-qr-img {
+  width: 200px;
+  height: 200px;
+  display: block;
+  filter: drop-shadow(0 0 16px rgba(212, 175, 55, 0.25));
+}
+.qa-qr-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.qa-qr-handle {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--pip-green);
+  text-shadow: var(--gg);
+}
+.qa-qr-link {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.25rem;
+  color: var(--sega-blue);
+  margin-top: 0.2rem;
+}
+.qa-questions-title {
+  font-size: 2.6rem;
+  margin-top: 2rem;
+  margin-bottom: 0;
+  font-weight: 800;
+  letter-spacing: 0.02em;
 }
 
 /* Title Slide */

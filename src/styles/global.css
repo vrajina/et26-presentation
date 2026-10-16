@@ -85,18 +85,14 @@ body::before {
   padding: 4rem;
 }
 
-/* === TYPOGRAPHY === */
+/* === TYPOGRAPHY DEFAULTS === */
 h1, h2, h3 {
   font-family: 'Oxanium', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  line-height: 1.15;
-  margin: 0;
+  text-transform: none;
 }
-h1 { font-size: 3.5em; font-weight: 800; }
-h2 { font-size: 2.1em; font-weight: 700; }
-h3 { font-size: 1.5em; font-weight: 700; }
-p  { line-height: 1.5; font-size: 1.3em; margin: 0; }
+p {
+  line-height: 1.5;
+}
 
 .pip-green  { color: var(--pip-green); text-shadow: var(--gg); }
 .amber      { color: var(--amber); text-shadow: var(--ga); }
