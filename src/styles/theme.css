@@ -83,6 +83,10 @@ p:last-child, li:last-child {
   justify-content: center;
   box-sizing: border-box;
 }
+.split-layout.reverse .split-text {
+  padding-left: 96px;
+  padding-right: 48px;
+}
 .split-img {
   width: 60%;
   height: 100vh;
