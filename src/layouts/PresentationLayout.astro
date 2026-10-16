@@ -17,16 +17,20 @@ const { title } = Astro.props;
 </head>
 <body>
 
+<!-- Top-Left Persistent Brand Logo (aligned with Oborot logo below) -->
+<header class="presentation-header">
+  <img src="/ff_logo_white.svg" class="header-logo-ff" alt="FINN FLARE" />
+</header>
+
 <div class="slides-track">
   <slot />
 </div>
 
-<!-- Unified Persistent Footer: Navigation + Branding across all slides -->
+<!-- Bottom Persistent Navigation & Conference Branding -->
 <footer class="presentation-footer">
   <div class="footer-left">
     <button class="nav-btn nav-prev hidden" aria-label="Предыдущий слайд">◀</button>
     <img src="/oborot_logo_white.png" class="footer-logo logo-oborot" alt="Оборот.ру" />
-    <img src="/et26_logo_white.png" class="footer-logo logo-et26" alt="Электронная торговля’26" />
   </div>
 
   <div class="footer-center">
@@ -37,7 +41,7 @@ const { title } = Astro.props;
   </div>
 
   <div class="footer-right">
-    <img src="/ff_logo_white.svg" class="footer-logo logo-ff" alt="FINN FLARE" />
+    <img src="/et26_logo_white.png" class="footer-logo logo-et26" alt="Электронная торговля’26" />
     <button class="nav-btn nav-next" aria-label="Следующий слайд">▶</button>
   </div>
 </footer>
