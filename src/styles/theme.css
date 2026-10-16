@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --pip-green: #d4af37; /* Muted Gold / Deus Ex Amber */
   --pip-green-dim: #997a00;
   --amber: #c4820e;
@@ -57,7 +57,10 @@ ul {
   padding-left: 1.8rem; 
 }
 li { 
-  margin-bottom: 0.5rem; 
+  margin-bottom: 0.45rem; 
+}
+p:last-child, li:last-child {
+  margin-bottom: 0;
 }
 
 /* 60/40 Split Layout */
@@ -74,7 +77,7 @@ li {
 .split-text {
   width: 40%;
   height: 100vh;
-  padding: 4rem 4.5rem;
+  padding: 3rem 4rem 5.5rem 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -95,28 +98,29 @@ li {
 .bullet-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 .bullet-item {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0;
 }
 .glow-box {
-  background: rgba(10, 12, 14, 0.7);
+  background: rgba(10, 12, 14, 0.75);
   border-radius: var(--radius-panel);
-  padding: 1.2rem 1.6rem;
+  padding: 1.25rem 1.6rem;
   border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
 }
 .glow-box p {
   margin-bottom: 0;
 }
 .border-magenta {
-  border-color: rgba(196, 130, 14, 0.4);
+  border-color: rgba(196, 130, 14, 0.45);
 }
 .border-cyan {
-  border-color: rgba(79, 139, 158, 0.4);
+  border-color: rgba(79, 139, 158, 0.45);
 }
 .border-green {
-  border-color: rgba(212, 175, 55, 0.4);
+  border-color: rgba(212, 175, 55, 0.45);
 }
 
 /* Title Slide */
@@ -135,53 +139,216 @@ li {
 .title-overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(11, 12, 14, 0.35);
+  background: rgba(11, 12, 14, 0.45);
   z-index: 1;
 }
 .title-content {
   position: relative;
   z-index: 2;
-  padding: 3rem 4rem;
+  padding: 3.5rem 4.5rem;
   background: rgba(11, 12, 14, 0.88);
   border: 1px solid var(--border);
   border-radius: var(--radius-panel);
   box-shadow: var(--gg);
-  max-width: 65%;
+  max-width: 68%;
   backdrop-filter: blur(8px);
 }
 
-/* Bottom footer aligned bar on title / final slide */
-.speaker-info-bottom {
-  position: absolute;
-  bottom: 35px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1001;
-  text-align: center;
-  background: rgba(11, 12, 14, 0.85);
-  padding: 0.6rem 2.2rem;
-  border-radius: var(--radius-panel);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(6px);
+/* ====================================================
+   UNIFIED PERSISTENT PRESENTATION FOOTER BAR (ALL SLIDES)
+   ==================================================== */
+.presentation-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 2000;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(11, 12, 14, 0) 0%, rgba(11, 12, 14, 0.78) 100%);
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
   display: flex;
   align-items: center;
-  gap: 1rem;
 }
-.speaker-info-bottom p {
-  margin-bottom: 0;
-  white-space: nowrap;
+
+.footer-left {
+  gap: 22px;
 }
-.speaker-name {
-  font-size: 1.35rem;
+
+.footer-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.footer-right {
+  gap: 22px;
+}
+
+.footer-logo {
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.85));
+  opacity: 0.95;
+  transition: opacity 0.2s ease;
+}
+
+.logo-oborot {
+  height: 28px;
+}
+
+.logo-et26 {
+  height: 28px;
+}
+
+.logo-ff {
+  height: 22px;
+}
+
+.footer-speaker {
+  font-family: var(--font-primary, 'Oxanium', sans-serif);
+  font-size: 1.3rem;
   font-weight: 600;
+  letter-spacing: 0.04em;
   color: var(--pip-green);
+  text-shadow: var(--gg);
 }
-.speaker-event {
-  font-size: 1.15rem;
+
+.footer-counter {
+  font-family: 'Share Tech Mono', 'Oxanium', monospace;
+  font-size: 1.25rem;
+  letter-spacing: 0.12em;
   color: var(--dim);
 }
-.speaker-divider {
-  color: var(--border);
-  font-size: 1.2rem;
+.footer-counter .nav-counter-current {
+  color: var(--pip-green);
+  font-weight: 700;
+  text-shadow: var(--gg);
+}
+.footer-counter .counter-sep {
+  color: rgba(212, 175, 55, 0.4);
+  margin: 0 6px;
+}
+
+.nav-btn {
+  pointer-events: auto;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  background: rgba(11, 12, 14, 0.65);
+  color: var(--pip-green);
+  font-size: 0.95rem;
+  border-radius: var(--radius-base, 4px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+}
+.nav-btn:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: var(--pip-green);
+  box-shadow: var(--gg);
+}
+.nav-btn.hidden,
+.footer-speaker.hidden,
+.footer-counter.hidden {
+  display: none !important;
+}
+
+/* ====================================================
+   QR CODE CARD STYLING (Q&A SLIDE 13)
+   ==================================================== */
+.qa-layout {
+  max-width: 60% !important;
+  padding: 3rem 4rem 3.5rem !important;
+}
+
+.qr-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.4rem;
+}
+
+.qr-card {
+  position: relative;
+  background: rgba(14, 16, 20, 0.94);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-panel);
+  padding: 1.5rem 2.4rem 1.6rem;
+  box-shadow: var(--gg), inset 0 0 15px rgba(212, 175, 55, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+.qr-card::before, .qr-card::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+}
+.qr-card::before {
+  top: -1px; left: -1px;
+  border-top: 2px solid var(--pip-green);
+  border-left: 2px solid var(--pip-green);
+}
+.qr-card::after {
+  bottom: -1px; right: -1px;
+  border-bottom: 2px solid var(--pip-green);
+  border-right: 2px solid var(--pip-green);
+}
+
+.qr-box {
+  background: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-img {
+  width: 170px;
+  height: auto;
+  display: block;
+}
+
+.qr-meta {
+  margin-top: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.qr-handle {
+  font-family: var(--font-accent, 'Share Tech Mono', monospace);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--pip-green);
+  text-shadow: var(--gg);
+}
+
+.qr-desc {
+  font-family: var(--font-primary, sans-serif);
+  font-size: 1.15rem;
+  color: var(--text);
+  opacity: 0.92;
 }
 

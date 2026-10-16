@@ -1,4 +1,4 @@
-﻿---
+---
 import '../styles/theme.css';
 import '../styles/global.css';
 
@@ -14,45 +14,33 @@ const { title } = Astro.props;
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{title}</title>
-  <style>
-    .logo-container {
-      position: fixed;
-      bottom: 35px;
-      left: 50px;
-      right: 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      pointer-events: none;
-    }
-    .logo {
-      object-fit: contain;
-      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.7));
-    }
-    .logo-oborot {
-      max-height: 42px;
-    }
-    .logo-ff {
-      max-height: 30px;
-    }
-  </style>
 </head>
 <body>
-<div class="logo-container">
-  <img src="/oborot_logo.png" class="logo logo-oborot" alt="Оборот.ру" />
-  <img src="/ff_logo_white.svg" class="logo logo-ff" alt="FINN FLARE" />
-</div>
 
 <div class="slides-track">
   <slot />
 </div>
 
-<!-- Navigation -->
-<div class="nav-arrows">
-  <button class="nav-btn nav-prev hidden" aria-label="Предыдущий слайд">◀</button>
-  <button class="nav-btn nav-next" aria-label="Следующий слайд">▶</button>
-</div>
+<!-- Unified Persistent Footer: Navigation + Branding across all slides -->
+<footer class="presentation-footer">
+  <div class="footer-left">
+    <button class="nav-btn nav-prev hidden" aria-label="Предыдущий слайд">◀</button>
+    <img src="/oborot_logo_white.png" class="footer-logo logo-oborot" alt="Оборот.ру" />
+    <img src="/et26_logo_white.png" class="footer-logo logo-et26" alt="Электронная торговля’26" />
+  </div>
+
+  <div class="footer-center">
+    <span class="footer-speaker">Илья Кадацкий</span>
+    <span class="footer-counter hidden">
+      <span class="nav-counter-current">01</span><span class="counter-sep">/</span><span class="nav-counter-total">13</span>
+    </span>
+  </div>
+
+  <div class="footer-right">
+    <img src="/ff_logo_white.svg" class="footer-logo logo-ff" alt="FINN FLARE" />
+    <button class="nav-btn nav-next" aria-label="Следующий слайд">▶</button>
+  </div>
+</footer>
 
 <script is:inline src="/slides.js"></script>
 </body>

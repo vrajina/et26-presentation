@@ -2,8 +2,10 @@
   const track = document.querySelector('.slides-track');
   const slides = document.querySelectorAll('.slide');
   const totalSlides = slides.length;
-  const counter = document.querySelector('.nav-counter-current');
+  const counterCurrent = document.querySelector('.nav-counter-current');
   const counterTotal = document.querySelector('.nav-counter-total');
+  const footerSpeaker = document.querySelector('.footer-speaker');
+  const footerCounter = document.querySelector('.footer-counter');
   const progress = document.querySelector('.nav-progress');
   const prevBtn = document.querySelector('.nav-prev');
   const nextBtn = document.querySelector('.nav-next');
@@ -11,8 +13,12 @@
   let current = 0;
   let isAnimating = false;
 
+  function pad(n) {
+    return n < 10 ? '0' + n : String(n);
+  }
+
   // Init counter
-  if (counterTotal) counterTotal.textContent = totalSlides;
+  if (counterTotal) counterTotal.textContent = pad(totalSlides);
 
   // Read hash
   const hash = window.location.hash.match(/^#slide-(\d+)$/);
@@ -26,10 +32,19 @@
     isAnimating = true;
     current = index;
     track.style.transform = 'translateX(-' + (current * 100) + 'vw)';
-    if (counter) counter.textContent = current + 1;
+    if (counterCurrent) counterCurrent.textContent = pad(current + 1);
     if (progress) progress.style.width = ((current + 1) / totalSlides * 100) + '%';
     if (prevBtn) prevBtn.classList.toggle('hidden', current === 0);
     if (nextBtn) nextBtn.classList.toggle('hidden', current === totalSlides - 1);
+
+    if (current === 0) {
+      if (footerSpeaker) footerSpeaker.classList.remove('hidden');
+      if (footerCounter) footerCounter.classList.add('hidden');
+    } else {
+      if (footerSpeaker) footerSpeaker.classList.add('hidden');
+      if (footerCounter) footerCounter.classList.remove('hidden');
+    }
+
     if (pushHash !== false) {
       history.replaceState(null, '', '#slide-' + (current + 1));
     }
