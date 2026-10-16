@@ -8,7 +8,7 @@
   const footerCounter = document.querySelector('.footer-counter');
   const progress = document.querySelector('.nav-progress');
   const prevBtn = document.querySelector('.nav-prev');
-  const nextBtn = document.querySelector('.nav-next');
+  const headerFF = document.querySelector('.presentation-header');
 
   let current = 0;
   let isAnimating = false;
@@ -37,8 +37,13 @@
     if (prevBtn) prevBtn.classList.toggle('hidden', current === 0);
     if (nextBtn) nextBtn.classList.toggle('hidden', current === totalSlides - 1);
 
+    if (headerFF) {
+      if (current === 0) headerFF.classList.add('hidden');
+      else headerFF.classList.remove('hidden');
+    }
+
     if (current === 0) {
-      if (footerSpeaker) footerSpeaker.classList.remove('hidden');
+      if (footerSpeaker) footerSpeaker.classList.add('hidden');
       if (footerCounter) footerCounter.classList.add('hidden');
     } else {
       if (footerSpeaker) footerSpeaker.classList.add('hidden');

@@ -281,13 +281,47 @@ h2.has-subtitle {
 .title-content {
   position: relative;
   z-index: 2;
-  padding: 3.5rem 4.5rem;
+  padding: 3rem 4rem;
   background: rgba(11, 12, 14, 0.88);
   border: 1px solid var(--border);
   border-radius: var(--radius-panel);
   box-shadow: var(--gg);
-  max-width: 68%;
+  max-width: 50%;
   backdrop-filter: blur(8px);
+}
+.title-logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+.title-ff-logo {
+  height: 38px;
+  display: block;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.8));
+}
+.title-main {
+  font-size: 3.6rem;
+  line-height: 1.15;
+  margin-top: 0;
+  margin-bottom: 1.4rem;
+  color: var(--pip-green);
+}
+.title-subtitle-text {
+  font-size: 1.85rem;
+  line-height: 1.45;
+  color: var(--sega-blue);
+  margin-top: 0;
+  margin-bottom: 2.2rem;
+  font-weight: 600;
+}
+.title-footer-author {
+  font-family: var(--font-primary, 'Oxanium', sans-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text);
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+  padding-top: 1.4rem;
+  letter-spacing: 0.02em;
 }
 
 /* ====================================================
@@ -299,6 +333,11 @@ h2.has-subtitle {
   left: 96px;
   z-index: 2000;
   pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.presentation-header.hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 .header-logo-ff {
   height: 26px;
