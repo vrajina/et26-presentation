@@ -8,6 +8,7 @@
   const footerCounter = document.querySelector('.footer-counter');
   const progress = document.querySelector('.nav-progress');
   const prevBtn = document.querySelector('.nav-prev');
+  const nextBtn = document.querySelector('.nav-next');
   const headerFF = document.querySelector('.presentation-header');
 
   let current = 0;
@@ -43,7 +44,7 @@
     }
 
     if (current === 0) {
-      if (footerSpeaker) footerSpeaker.classList.add('hidden');
+      if (footerSpeaker) footerSpeaker.classList.remove('hidden');
       if (footerCounter) footerCounter.classList.add('hidden');
     } else {
       if (footerSpeaker) footerSpeaker.classList.add('hidden');
