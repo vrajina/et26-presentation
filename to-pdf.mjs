@@ -82,7 +82,15 @@ async function main() {
     console.log(`📸 Slide ${i + 1}/${TOTAL_SLIDES}...`);
     await page.evaluate((idx, total) => {
       const track = document.querySelector('.slides-track');
-      track.style.transition = 'none';
+      if (track) {
+        track.style.transition = 'none';
+        track.style.transform = 'translateX(-' + (idx * 100) + 'vw)';
+      }
+      const headerFF = document.querySelector('.presentation-header');
+      if (headerFF) {
+        if (idx === 0) headerFF.classList.add('hidden');
+        else headerFF.classList.remove('hidden');
+      }
       const pad = n => (n < 10 ? '0' + n : String(n));
       const cur = document.querySelector('.nav-counter-current');
       if (cur) cur.textContent = pad(idx + 1);
